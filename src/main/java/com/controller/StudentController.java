@@ -1,6 +1,6 @@
 package com.controller;
 
-
+import com.service.FacultyService;
 import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,9 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-   public String getAllStudents(Model model){
-       model.addAttribute("allStudents", studentService.getAllStudents());
-       return "student_list";
-   }
+    @RequestMapping(value = "/studentList", method = RequestMethod.GET)
+    public String getAllStudents(Model model) {
+        model.addAttribute("allStudents", studentService.getAllStudents());
+        return "studentList";
+    }
 }
