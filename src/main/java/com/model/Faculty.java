@@ -82,7 +82,6 @@ public class Faculty {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", studentSet=" + studentSet +
                 '}';
     }
 }

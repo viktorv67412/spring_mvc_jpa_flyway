@@ -15,9 +15,10 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String getAllStudents(Model model) {
-        model.addAttribute("studentsList", studentService.getAllStudents());
-        return "index";
-    }
+   public String getAllStudents(Model model){
+       model.addAttribute("allStudents", studentService.getAllStudents());
+       return "student_list";
+   }
 }

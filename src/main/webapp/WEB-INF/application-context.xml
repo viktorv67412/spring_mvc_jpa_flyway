@@ -10,9 +10,9 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="viewresolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="suffix" value=".jsp"/>
-        <property name="prefix" value="/WEB-INF/pages"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
     </bean>
 
     <context:component-scan base-package="com"/>
@@ -37,7 +37,7 @@
     <bean id="entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="persistenceUnitName" value="PersistenceSpringMvcJpaFlyway"/>
-        <property name="jpaVendorAdapter" value="vendorAdapter"/>
+        <property name="jpaVendorAdapter" ref="vendorAdapter"/>
         <property name="jpaProperties">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

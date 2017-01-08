@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("studentService")
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
