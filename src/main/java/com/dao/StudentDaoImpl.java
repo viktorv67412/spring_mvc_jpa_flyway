@@ -22,8 +22,10 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public void addStudent(Student student) {
-
         EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.merge(student);
+        transaction.commit();
     }
 }
 
