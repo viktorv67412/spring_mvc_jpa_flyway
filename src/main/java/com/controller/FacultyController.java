@@ -19,4 +19,10 @@ public class FacultyController {
         model.addAttribute("allFaculties", facultyService.getAllFaculties());
         return "facultyList";
     }
+
+    @RequestMapping(value = "/faculty", method = RequestMethod.GET)
+    public String getFaculty(Model model) {
+        model.addAttribute("student", facultyService.getFacultyByName("computer_science"));
+        return "index";
+    }
 }

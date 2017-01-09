@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import java.util.List;
@@ -19,4 +20,10 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getAllStudents() {
         return entityManager.createQuery("select s from Student s").getResultList();
     }
+
+    public void addStudent(Student student) {
+
+        EntityTransaction transaction = entityManager.getTransaction();
+    }
 }
+

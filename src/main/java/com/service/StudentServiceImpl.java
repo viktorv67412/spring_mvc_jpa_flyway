@@ -16,4 +16,20 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getAllStudents() {
         return studentDao.getAllStudents();
     }
+
+    public Object getStudentByName(String name) {
+
+        List<Student> students = studentDao.getAllStudents();
+
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName().equals(name)) {
+                return students.get(i);
+            }
+        }
+        return null;
+    }
+
+    public void addStudent(Student student) {
+        studentDao.addStudent(student);
+    }
 }

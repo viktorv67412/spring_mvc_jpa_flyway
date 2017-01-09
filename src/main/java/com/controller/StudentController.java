@@ -1,5 +1,7 @@
 package com.controller;
 
+import com.model.Faculty;
+import com.model.Student;
 import com.service.FacultyService;
 import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,18 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private FacultyService facultyService;
 
     @RequestMapping(value = "/studentList", method = RequestMethod.GET)
     public String getAllStudents(Model model) {
         model.addAttribute("allStudents", studentService.getAllStudents());
         return "studentList";
+    }
+
+    @RequestMapping(value = "/student", method = RequestMethod.GET)
+    public String getStudent(Model model) {
+        model.addAttribute("student", studentService.getStudentByName("student1"));
+        return "index";
     }
 }

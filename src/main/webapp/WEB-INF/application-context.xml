@@ -19,11 +19,18 @@
 
     <tx:annotation-driven/>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="password" value=""/>
         <property name="username" value="root"/>
         <property name="url" value="jdbc:mysql://localhost:3306/university"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    </bean>-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="password" value="sa"/>
+        <property name="username" value="sa"/>
+        <property name="url" value="jdbc:h2:/Users/viktor/Desktop/java/java_ee/university"/>
+        <property name="driverClassName" value="org.h2.Driver"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -45,8 +52,8 @@
         </property>
     </bean>
 
-    <!--<bean id="flyway" class="com.googlecode.flyway.core.Flyway" init-method="migrate">
+    <bean id="flyway" class="com.googlecode.flyway.core.Flyway" init-method="migrate">
         <property name="dataSource" ref="dataSource"/>
-    </bean>-->
+    </bean>
 
 </beans>
